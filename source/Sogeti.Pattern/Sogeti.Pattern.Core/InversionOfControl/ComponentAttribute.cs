@@ -3,23 +3,25 @@
 namespace Sogeti.Pattern.InversionOfControl
 {
     /// <summary>
-    /// Mark a class as a component.
+    ///   Mark a class as a component.
     /// </summary>
-    /// <remarks>Put this attribute on your classes to let your container register all services for you.</remarks>
+    /// <remarks>
+    ///   Put this attribute on your classes to let your container register all services for you.
+    /// </remarks>
     [AttributeUsage(AttributeTargets.Class)]
     public class ComponentAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComponentAttribute"/> class.
+        ///   Initializes a new instance of the <see cref="ComponentAttribute" /> class.
         /// </summary>
-        /// <param name="lifetime">Specify that the component has a specific lifetime.</param>
+        /// <param name="lifetime"> Specify that the component has a specific lifetime. </param>
         public ComponentAttribute(Lifetime lifetime)
         {
             Lifetime = lifetime;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComponentAttribute"/> class.
+        ///   Initializes a new instance of the <see cref="ComponentAttribute" /> class.
         /// </summary>
         public ComponentAttribute()
         {
@@ -28,7 +30,7 @@ namespace Sogeti.Pattern.InversionOfControl
 
 
         /// <summary>
-        /// Gets specified lifetime (if other than default lifetime should be used)
+        ///   Gets specified lifetime (if other than default lifetime should be used)
         /// </summary>
         public Lifetime Lifetime { get; set; }
     }

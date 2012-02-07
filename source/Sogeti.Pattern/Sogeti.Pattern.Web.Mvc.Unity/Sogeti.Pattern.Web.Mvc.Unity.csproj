@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{11F0F3F5-7E9F-41E3-AA11-A4DEEB14AEDE}</ProjectGuid>
+    <ProjectGuid>{1E2ED3F6-2982-4194-843C-1A2BC063C827}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sogeti.Pattern</RootNamespace>
-    <AssemblyName>Sogeti.Pattern.Core</AssemblyName>
+    <RootNamespace>Sogeti.Pattern.Web.Mvc.Unity</RootNamespace>
+    <AssemblyName>Sogeti.Pattern.Web.Mvc.Unity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Sogeti.Pattern\</SolutionDir>
@@ -33,8 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,15 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CommandExtensions.cs" />
-    <Compile Include="DateTimeExtensions.cs" />
-    <Compile Include="InversionOfControl\CollectionAttribute.cs" />
-    <Compile Include="InversionOfControl\ComponentAttribute.cs" />
-    <Compile Include="InversionOfControl\IStartable.cs" />
-    <Compile Include="InversionOfControl\Lifetime.cs" />
-    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="UnityHttpLifetimeScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

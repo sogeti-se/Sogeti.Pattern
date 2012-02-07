@@ -1,8 +1,8 @@
 using System;
-using Autofac;
+using Microsoft.Practices.Unity;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Autofac
+namespace Sogeti.Pattern.Core.Unity
 {
     /// <summary>
     ///   Use to register [Component] tagged classes in the container
@@ -20,8 +20,8 @@ namespace Sogeti.Pattern.Core.Autofac
         /// <summary>
         ///   Register a new component.
         /// </summary>
-        /// <param name="builder"> Autofac builder </param>
+        /// <param name="container"> Container to register the type in </param>
         /// <param name="type"> Type to register. </param>
-        void RegisterComponent(ContainerBuilder builder, Type type);
+        void RegisterComponent(IUnityContainer container, Type type);
     }
 }

@@ -3,21 +3,20 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web.Hosting;
-using Autofac;
-using Autofac.Core;
+using Microsoft.Practices.Unity;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Autofac
+namespace Sogeti.Pattern.Core.Unity
 {
     /// <summary>
-    ///   Extension methods for the container builder
+    ///   Extension methods for unity
     /// </summary>
-    public static class BuilderExtensions
+    public static class UnityExtensions
     {
         /// <summary>
         ///   Registers all components that are found in the specified assembly
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="container"> The container. </param>
         /// <param name="assembly"> The assembly to scan. </param>
         /// <remarks>
         ///   <para>Uses
@@ -26,9 +25,9 @@ namespace Sogeti.Pattern.Core.Autofac
         ///                                     <see cref="Lifetime.Scoped" />
         ///                                     is used as the default lifetime.</para>
         /// </remarks>
-        public static void RegisterAllComponents(this ContainerBuilder builder, Assembly assembly)
+        public static void RegisterAllComponents(this IUnityContainer container, Assembly assembly)
         {
-            if (builder == null) throw new ArgumentNullException("builder");
+            if (container == null) throw new ArgumentNullException("container");
             if (assembly == null) throw new ArgumentNullException("assembly");
 
             foreach (var type in assembly.GetTypes())
@@ -37,21 +36,21 @@ namespace Sogeti.Pattern.Core.Autofac
                 if (attribute == null)
                     continue;
 
-                ComponentRegistrar.Current.RegisterComponent(builder, type);
+                ComponentRegistrar.Current.RegisterComponent(container, type);
             }
         }
 
         /// <summary>
         ///   Scans the current folder for assemblies that has Autofac IModule classes.
         /// </summary>
-        /// <param name="builder"> Builder to use </param>
+        /// <param name="container"> Builder to use </param>
         /// <param name="filePattern"> Filename pattern (can use <see cref="Directory.GetFiles(string)" /> patterns) </param>
-        public static void RegisterModules(this ContainerBuilder builder, string filePattern)
+        public static void RegisterModules(this IUnityContainer container, string filePattern)
         {
             var path = HostingEnvironment.ApplicationPhysicalPath;
             path = path != null ? Path.Combine(path, "bin") : AppDomain.CurrentDomain.BaseDirectory;
 
-            if (builder == null) throw new ArgumentNullException("builder");
+            if (container == null) throw new ArgumentNullException("container");
             if (filePattern == null) throw new ArgumentNullException("filePattern");
             foreach (var fullPath in Directory.GetFiles(path, filePattern))
             {
@@ -60,7 +59,7 @@ namespace Sogeti.Pattern.Core.Autofac
                     AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(asm => MatchFile(asm, filename)) ??
                     Assembly.LoadFrom(fullPath);
 
-                RegisterModules(builder, assembly);
+                RegisterModules(container, assembly);
             }
         }
 
@@ -72,19 +71,20 @@ namespace Sogeti.Pattern.Core.Autofac
         }
 
         /// <summary>
-        ///   Register all found <see cref="IModule" /> classes in the specified assembly.
+        ///   Register all found <see cref="IContainerModule" /> classes in the specified assembly.
         /// </summary>
-        /// <param name="builder"> Builder to register the modules in </param>
+        /// <param name="container"> Builder to register the modules in </param>
         /// <param name="assembly"> Assembly to search in </param>
-        public static void RegisterModules(this ContainerBuilder builder, Assembly assembly)
+        public static void RegisterModules(this IUnityContainer container, Assembly assembly)
         {
-            if (builder == null) throw new ArgumentNullException("builder");
+            if (container == null) throw new ArgumentNullException("container");
             if (assembly == null) throw new ArgumentNullException("assembly");
             foreach (
-                var moduleType in assembly.GetTypes().Where(t => typeof (IModule).IsAssignableFrom(t) && !t.IsAbstract))
+                var moduleType in
+                    assembly.GetTypes().Where(t => typeof (IContainerModule).IsAssignableFrom(t) && !t.IsAbstract))
             {
-                var module = (IModule) Activator.CreateInstance(moduleType);
-                builder.RegisterModule(module);
+                var module = (IContainerModule) Activator.CreateInstance(moduleType);
+                module.BuildContainer(container);
             }
         }
     }
