@@ -6,7 +6,7 @@ using System.Web.Hosting;
 using Microsoft.Practices.Unity;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Unity
+namespace Sogeti.Pattern.InversionOfControl.Unity
 {
     /// <summary>
     ///   Extension methods for unity

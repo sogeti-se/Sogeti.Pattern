@@ -5,13 +5,13 @@ using System.Reflection;
 using System.Web.Hosting;
 using Autofac;
 using Autofac.Core;
-using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Autofac
+namespace Sogeti.Pattern.InversionOfControl.Autofac
 {
     /// <summary>
     ///   Extension methods for the container builder
     /// </summary>
+    /// <remarks>Read the wiki (https://github.com/sogeti-se/Sogeti.Pattern/wiki) about working with containers.</remarks>
     public static class BuilderExtensions
     {
         /// <summary>
@@ -81,10 +81,10 @@ namespace Sogeti.Pattern.Core.Autofac
             if (builder == null) throw new ArgumentNullException("builder");
             if (assembly == null) throw new ArgumentNullException("assembly");
             foreach (
-                var moduleType in assembly.GetTypes().Where(t => typeof (IModule).IsAssignableFrom(t) && !t.IsAbstract))
+                var moduleType in assembly.GetTypes().Where(t => typeof(IContainerModule).IsAssignableFrom(t) && !t.IsAbstract))
             {
-                var module = (IModule) Activator.CreateInstance(moduleType);
-                builder.RegisterModule(module);
+                var module = (IContainerModule)Activator.CreateInstance(moduleType);
+                module.BuildContainer(builder);
             }
         }
     }

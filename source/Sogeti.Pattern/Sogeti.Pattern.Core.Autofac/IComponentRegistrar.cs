@@ -2,7 +2,7 @@ using System;
 using Autofac;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Autofac
+namespace Sogeti.Pattern.InversionOfControl.Autofac
 {
     /// <summary>
     ///   Use to register [Component] tagged classes in the container

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Core", "Sogeti.Pattern.Core\Sogeti.Pattern.Core.csproj", "{11F0F3F5-7E9F-41E3-AA11-A4DEEB14AEDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Core.Autofac", "Sogeti.Pattern.Core.Autofac\Sogeti.Pattern.Core.Autofac.csproj", "{D6313ECB-B6D9-45C7-A7BA-80F8D9F20F4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.InversionOfControl.Autofac", "Sogeti.Pattern.Core.Autofac\Sogeti.Pattern.InversionOfControl.Autofac.csproj", "{D6313ECB-B6D9-45C7-A7BA-80F8D9F20F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Core.Unity", "Sogeti.Pattern.Core.Unity\Sogeti.Pattern.Core.Unity.csproj", "{695ECE71-5EFE-419D-8EF6-02BEEC0566D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.InversionOfControl.Unity", "Sogeti.Pattern.Core.Unity\Sogeti.Pattern.InversionOfControl.Unity.csproj", "{695ECE71-5EFE-419D-8EF6-02BEEC0566D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Mvc3", "Sogeti.Pattern.Mvc3\Sogeti.Pattern.Mvc3.csproj", "{CD73A924-7443-42D7-BC03-8AE1263BC0EA}"
 EndProject
@@ -17,7 +17,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B731B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Web.Mvc.Unity", "Sogeti.Pattern.Web.Mvc.Unity\Sogeti.Pattern.Web.Mvc.Unity.csproj", "{1E2ED3F6-2982-4194-843C-1A2BC063C827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.InversionOfControl.Autofac.Tests", "Sogeti.Pattern.InversionOfControl.Autofac.Tests\Sogeti.Pattern.InversionOfControl.Autofac.Tests.csproj", "{DB667E42-E7CE-488F-AC75-5AD5F7C58F26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F89286B-7332-4907-8B03-D5496A862134}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Sogeti.Pattern.vsmdi = Sogeti.Pattern.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.InversionOfControl.Unity.Tests", "Sogeti.Pattern.InversionOfControl.Unity.Tests\Sogeti.Pattern.InversionOfControl.Unity.Tests.csproj", "{CD186569-A5BF-413F-A8E2-3D47A0C06FB6}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Sogeti.Pattern.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -43,6 +57,14 @@ Global
 		{1E2ED3F6-2982-4194-843C-1A2BC063C827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2ED3F6-2982-4194-843C-1A2BC063C827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2ED3F6-2982-4194-843C-1A2BC063C827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB667E42-E7CE-488F-AC75-5AD5F7C58F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB667E42-E7CE-488F-AC75-5AD5F7C58F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB667E42-E7CE-488F-AC75-5AD5F7C58F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB667E42-E7CE-488F-AC75-5AD5F7C58F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD186569-A5BF-413F-A8E2-3D47A0C06FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD186569-A5BF-413F-A8E2-3D47A0C06FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD186569-A5BF-413F-A8E2-3D47A0C06FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD186569-A5BF-413F-A8E2-3D47A0C06FB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
 
-namespace Sogeti.Pattern.Core.Unity
+namespace Sogeti.Pattern.InversionOfControl.Unity
 {
     /// <summary>
     /// Creates a scoped lifetime manager
