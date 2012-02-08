@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Sogeti.Pattern.InversionOfControl.Autofac.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
@@ -49,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutofacServiceResolver.cs" />
     <Compile Include="BuilderExtensions.cs" />
     <Compile Include="ComponentRegistrar.cs" />
     <Compile Include="IComponentRegistrar.cs" />
