@@ -42,6 +42,8 @@ namespace Sogeti.Pattern.InversionOfControl.Autofac
         /// <returns>Service if found; otherwise <c>null</c>.</returns>
         public object Resolve(Type type)
         {
+            if (type == null) throw new ArgumentNullException("type");
+
             return _container.Resolve(type);
         }
 
@@ -62,6 +64,8 @@ namespace Sogeti.Pattern.InversionOfControl.Autofac
         /// <returns>A collection of services (or an empty collection)</returns>
         public IEnumerable ResolveAll(Type type)
         {
+            if (type == null) throw new ArgumentNullException("type");
+
             var collectionType = typeof (IEnumerable<>).MakeGenericType(type);
             return (IEnumerable)_container.Resolve(collectionType);
         }
