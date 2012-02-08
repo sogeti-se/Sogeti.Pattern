@@ -2,7 +2,7 @@ using System;
 using Microsoft.Practices.Unity;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Unity
+namespace Sogeti.Pattern.InversionOfControl.Unity
 {
     /// <summary>
     ///   Use to register [Component] tagged classes in the container

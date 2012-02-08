@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Practices.Unity;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Unity
+namespace Sogeti.Pattern.InversionOfControl.Unity
 {
     /// <summary>
     ///   Used to register [Component] decorated classes.
