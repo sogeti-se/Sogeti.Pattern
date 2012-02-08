@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Practices.Unity;
 
-namespace Sogeti.Pattern.Core.Unity
+namespace Sogeti.Pattern.InversionOfControl.Unity
 {
     /// <summary>
     /// Used to be able to provide scoped components (where scope are controlled by the application type such as a HTTP Request/reply scope)

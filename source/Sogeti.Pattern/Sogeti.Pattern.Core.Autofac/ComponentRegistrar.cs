@@ -3,7 +3,7 @@ using System.Linq;
 using Autofac;
 using Sogeti.Pattern.InversionOfControl;
 
-namespace Sogeti.Pattern.Core.Autofac
+namespace Sogeti.Pattern.InversionOfControl.Autofac
 {
     /// <summary>
     ///   Used to load all classes decorated with the [Component] attribute.
