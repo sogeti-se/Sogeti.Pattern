@@ -7,5 +7,10 @@
     /// <remarks>See <see cref="IDomainEvent"/> for an example.</remarks>
     public interface IAutoSubscriberOf<in T> where T : IDomainEvent
     {
+        /// <summary>
+        /// Handle the domain event
+        /// </summary>
+        /// <param name="e">Domain to process</param>
+        void Handle(T e);
     }
 }
