@@ -52,11 +52,13 @@
     <Compile Include="DomainEvents\IDomainEventDispatcher.cs" />
     <Compile Include="InversionOfControl\CollectionAttribute.cs" />
     <Compile Include="InversionOfControl\ComponentAttribute.cs" />
+    <Compile Include="InversionOfControl\IContainerModule.cs" />
     <Compile Include="InversionOfControl\IServiceResolver.cs" />
     <Compile Include="InversionOfControl\IStartable.cs" />
     <Compile Include="InversionOfControl\Lifetime.cs" />
     <Compile Include="InversionOfControl\NoServiceResolver.cs" />
     <Compile Include="InversionOfControl\ServiceResolver.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeExtensions.cs" />

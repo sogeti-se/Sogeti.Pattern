@@ -68,6 +68,7 @@ namespace Sogeti.Pattern.InversionOfControl.Autofac
         {
             if (asm == null) throw new ArgumentNullException("asm");
             if (filename == null) throw new ArgumentNullException("filename");
+
             return filename.Equals(Path.GetFileName(asm.Location), StringComparison.OrdinalIgnoreCase);
         }
 
@@ -80,10 +81,9 @@ namespace Sogeti.Pattern.InversionOfControl.Autofac
         {
             if (builder == null) throw new ArgumentNullException("builder");
             if (assembly == null) throw new ArgumentNullException("assembly");
-            foreach (
-                var moduleType in assembly.GetTypes().Where(t => typeof(IContainerModule).IsAssignableFrom(t) && !t.IsAbstract))
+
+            foreach (var module in assembly.GetTypes().Where(t => typeof(IAutofacContainerModule).IsAssignableFrom(t) && !t.IsAbstract).Select(moduleType => (IAutofacContainerModule)Activator.CreateInstance(moduleType)))
             {
-                var module = (IContainerModule)Activator.CreateInstance(moduleType);
                 module.BuildContainer(builder);
             }
         }
