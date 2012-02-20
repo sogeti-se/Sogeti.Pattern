@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.InversionOfC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Core.Tests", "Sogeti.Pattern.Core.Tests\Sogeti.Pattern.Core.Tests.csproj", "{7EEB6087-0F3D-425C-A5BE-6CB85D790E55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.Pattern.Data.NHibernate", "Sogeti.Pattern.Data.NHibernate\Sogeti.Pattern.Data.NHibernate.csproj", "{A4D78826-FCFD-483C-B3E5-D88C3DE31C05}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Sogeti.Pattern.vsmdi
@@ -71,6 +73,10 @@ Global
 		{7EEB6087-0F3D-425C-A5BE-6CB85D790E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EEB6087-0F3D-425C-A5BE-6CB85D790E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EEB6087-0F3D-425C-A5BE-6CB85D790E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D78826-FCFD-483C-B3E5-D88C3DE31C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D78826-FCFD-483C-B3E5-D88C3DE31C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D78826-FCFD-483C-B3E5-D88C3DE31C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D78826-FCFD-483C-B3E5-D88C3DE31C05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
